@@ -1,0 +1,67 @@
+<div class="container">
+  <h2 class="mb-4 text-center">Patient List</h2>
+  <div class="row mb-3">
+    <div class="col-md-12">
+      <div class="pull-right">
+        <button class="btn btn-success" [routerLink]="['/patient-register']">
+          <i class="fa fa-plus"></i> Add New Patient
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div *ngIf="patients.length > 0; else noPatients">
+      <div *ngFor="let patient of patients" class="col-12 mb-4">
+        <div class="card h-100">
+          <div class="card-body d-flex">
+            <div class="card-image">
+              <img
+                *ngIf="patient.image"
+                [src]="'http://localhost:8080/image/' + patient.image"
+                class="card-img-left"
+                alt="Patient Image"
+                style="height: 150px; object-fit: cover; border-radius: 10px;"
+              />
+            </div>
+            <div class="card-text ml-3">
+              <h5 class="card-title">
+                {{ patient.firstName }} {{ patient.lastName }}
+              </h5>
+              <p>
+                <strong>Age:</strong> {{ patient.dob || '-' }} <br />
+                <strong>Age:</strong> {{ patient.age || '-' }} <br />
+                <strong>Gender:</strong> {{ patient.gender || '-' }} <br />
+                <strong>Permanent Address:</strong> {{ patient.permanentAddress || '-' }} <br />
+                <strong>Present Address:</strong> {{ patient.presentAddress || '-' }} <br />
+                <strong>Mobile:</strong> {{ patient.mobileNo || '-' }}
+              </p>
+
+              <div class="card-footer text-center">
+                <button
+                  [routerLink]="['/patient-edit', patient.id]"
+                  class="btn btn-primary btn-sm me-2"
+                  title="Edit"
+                >
+                  <i class="fa fa-edit"></i> Edit
+                </button>
+                <button
+                  (click)="deletePatient(patient.id)"
+                  class="btn btn-danger btn-sm"
+                  title="Delete"
+                >
+                  <i class="fa fa-times"></i> Delete
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <ng-template #noPatients>
+      <div class="col-md-12 text-center">
+        <p class="text-muted">No patients available. Add a new patient to get started!</p>
+      </div>
+    </ng-template>
+  </div>
+</div>

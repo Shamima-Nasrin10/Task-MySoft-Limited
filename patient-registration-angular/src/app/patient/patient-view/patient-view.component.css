@@ -1,0 +1,139 @@
+.container {
+  margin-top: 30px;
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  font-family: 'Arial', sans-serif;
+  font-weight: 600;
+  color: #985c63;
+}
+
+.pull-right .btn-success {
+  background-color: #596e7c;
+  border-color: #4f6170;
+  border-radius: 20px;
+  font-size: 16px;
+  font-weight: 500;
+  color: white;
+  padding: 10px;
+  margin-bottom: 10px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.pull-right .btn-success:hover {
+  background-color: #3e5465;
+  transform: scale(1.05);
+}
+
+.card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px;
+}
+
+.card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
+}
+
+.card-title{
+  color: #116a6c;
+  font-size: larger;
+}
+
+.card-image {
+  flex: 0 0 150px;
+  height: 150px;
+  overflow: hidden;
+  border-radius: 10px;
+  background-color: #f0f0f0;
+}
+
+.card-img-left {
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-body {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.card-text {
+  margin-left: 15px;
+}
+
+.card-footer .btn-primary,
+.card-footer .btn-danger {
+  font-size: 14px;
+  padding: 5px 10px 5px 10px;
+  margin: 5px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.card-footer .btn-primary {
+  background-color: #1971b9;
+  border-color: #0b4d83;
+  color: white;
+}
+
+.card-footer .btn-primary:hover {
+  background-color: #0056b3;
+  color: white;
+  transform: scale(1.1);
+}
+
+.card-footer .btn-danger {
+  background-color: #af4554;
+  border-color: #bd2937;
+  color: white;
+}
+
+.card-footer .btn-danger:hover {
+  background-color: #c82333;
+  color: white;
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .card {
+    margin: 0 auto;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .card-body {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card-img-left {
+    margin-bottom: 10px;
+    height: 200px;
+  }
+
+  .card-footer {
+    text-align: center;
+  }
+
+  .pull-right {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .btn-success {
+    width: 100%;
+  }
+}

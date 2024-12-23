@@ -1,0 +1,128 @@
+<div class="container">
+  <h2 class="text-center mb-4">{{ patientId ? 'Update Patient' : 'Register New Patient' }}</h2>
+
+  <form (ngSubmit)="onSubmit()">
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <label for="firstName" class="form-label">First Name</label>
+        <input
+          type="text"
+          id="firstName"
+          class="form-control"
+          [(ngModel)]="patient.firstName"
+          name="firstName"
+          required
+        />
+      </div>
+      <div class="col-md-6">
+        <label for="lastName" class="form-label">Last Name</label>
+        <input
+          type="text"
+          id="lastName"
+          class="form-control"
+          [(ngModel)]="patient.lastName"
+          name="lastName"
+          required
+        />
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <label for="dob" class="form-label">Date of Birth</label>
+        <input
+          type="date"
+          id="dob"
+          class="form-control"
+          [(ngModel)]="patient.dob"
+          name="dob"
+          required
+          (change)="onDobChange($event)"
+        />
+      </div>
+      <div class="col-md-6">
+        <label for="age" class="form-label">Age</label>
+        <input
+          type="text"
+          id="age"
+          class="form-control"
+          [value]="patient.age || ''"
+          readonly
+        />
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <label for="gender" class="form-label">Gender</label>
+      <select
+        id="gender"
+        class="form-select"
+        [(ngModel)]="patient.gender"
+        name="gender"
+        required
+      >
+        <option *ngFor="let g of gender" [value]="g">{{ g.charAt(0) + g.slice(1).toLowerCase() }}</option>
+      </select>
+    </div>
+    <div class="col-md-6">
+      <label for="mobileNo" class="form-label">Mobile Number</label>
+      <input
+        type="text"
+        id="mobileNo"
+        class="form-control"
+        [(ngModel)]="patient.mobileNo"
+        name="mobileNo"
+        required
+      />
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <label for="permanentAddress" class="form-label">Permanent Address</label>
+        <textarea
+          id="permanentAddress"
+          class="form-control"
+          [(ngModel)]="patient.permanentAddress"
+          name="permanentAddress"
+          rows="3"
+          required
+        ></textarea>
+      </div>
+      <div class="col-md-6">
+        <label for="presentAddress" class="form-label">Present Address</label>
+        <textarea
+          id="presentAddress"
+          class="form-control"
+          [(ngModel)]="patient.presentAddress"
+          name="presentAddress"
+          rows="3"
+          required
+        ></textarea>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <label for="image" class="form-label">Profile Image</label>
+        <input
+          type="file"
+          id="image" accept=".png, .jpg, .jpeg" name="image"
+          class="form-control"
+          (change)="onImagePicked($event)"
+        />
+      </div>
+    </div>
+    <div class="text-center">
+      <button type="submit" class="btn btn-success">
+        {{ patientId ? 'Update Patient' : 'Register Patient' }}
+      </button>
+      <button
+        type="button"
+        class="btn btn-secondary ms-3"
+        [routerLink]="'/patient-edit/:id'"
+      >
+        Cancel
+      </button>
+    </div>
+  </form>
+</div>
